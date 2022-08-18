@@ -12,5 +12,10 @@ Primarily Python, with machine learning models. Something to map past prediciton
 
 ## Results
 The Decision Tree Classifier was able to predict with 50% accuracy based on latitude and longitude, with the Classificaition type as the defining feature.
-The Random Forest Classifier was able to predict with 53% accuracy given the same inputs.
 
+<img src="https://github.com/mmdemars/bigfoot_migration/blob/main/images/decisiontree_classifier.png" width="400">
+
+The Random Forest Classifier was able to predict with 53% accuracy given the same inputs.
+<img src="https://github.com/mmdemars/bigfoot_migration/blob/main/images/randomforest_classifier.png" width="400">
+
+As Class A reports are considered to be much more reliable and irrefutable than Class B and C reorts - a question arises as to whether limiting the data set to just the Class A reports would improve maching learning performance.
