@@ -28,19 +28,14 @@ let baseMaps = {
   "Navigation Night": navigationNight
 };
 
-// 1. Add a 2nd layer group for the sightings.
+// 1. Add layers group for the sightings and the tacos.
 let bestTacos = new L.LayerGroup();
-
-let allSigntings = new L.LayerGroup();
-// 1. Add a layer group for the tacos.
-
-
+let allSightings = new L.LayerGroup();
 
 // 2. Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
   "The Best Tacos": bestTacos,
-
-  "Sightings": allSigntings,
+  "Sightings": allSightings,
 };
 
 // Then we add a control to the map that will allow the user to change which
@@ -58,7 +53,7 @@ let tacoStyle = {
 };
 
 // 3. Use d3.json to make a call to get our TACO geoJSON data.
-d3.json("../static/best_tacos.geojson").then(function (data) {
+d3.json("/site/static/best_tacos.geojson").then(function (data) {
   console.log(data);
   L.geoJSON(data, {
     pointToLayer: function (feature, latlng) {
@@ -85,7 +80,7 @@ d3.json("../static/best_tacos.geojson").then(function (data) {
 
 
 // Retrieve the sighting GeoJSON data.
-d3.json("../static/bigfoot_movement.geojson").then(function (data) {
+d3.json("/site/static/bigfoot_movement.geojson").then(function (data) {
 
   // This function returns the style data for each of the earthquakes we plot on
   // the map. We pass the magnitude of the earthquake into two separate functions
@@ -96,7 +91,6 @@ d3.json("../static/bigfoot_movement.geojson").then(function (data) {
       fillOpacity: .5,
       //fillColor: getColor(feature.properties.month),
       fillColor: "#FFFFFF",
-
       color: "#FFFFFF",
       radius: getRadius(feature.properties.classification),
       stroke: true,
@@ -170,10 +164,10 @@ d3.json("../static/bigfoot_movement.geojson").then(function (data) {
     onEachFeature: function (feature, layer) {
       layer.bindPopup("Report Number:" + feature.properties.number + "<br>Report: " + feature.properties.report + "<br>Date: " + feature.properties.timestamp)
     }
-  }).addTo(allSigntings);
+  }).addTo(allSightings);
 
   // Then we add the earthquake layer to our map.
-  allSigntings.addTo(map);
+  allSightings.addTo(map);
 
   // Here we create a legend control object.
   let legend = L.control({
