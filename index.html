@@ -29,7 +29,8 @@
 	<!-- API key -->
 	<script type="text/javascript" src="js/config.js"></script>
 	<!------STUFF -->
-
+ <!-- d3 JavaScript -->
+ <script src="https://d3js.org/d3.v7.min.js"></script>
 	<link rel="stylesheet" href="static/css/main.css">
 
 </head>
@@ -45,9 +46,7 @@
 
 	<nav>
 		<ul class="nav">
-			<li>
-				<a href="tacomap.html">Map Without Extras</a>
-			</li>
+		
 			<li>
 				<a href="https://www.bfro.net/gdb/">The Bigfoot Field Researchers Organization</a>
 			</li>
@@ -65,29 +64,20 @@
 			<p>In this map, bigfoot sightings are marked in white, with larger circles indicating a more reliable
 				sighting. More information about each sighting is available by hovering over the icon.</p>
 			<p>Yellow dots indicate unique restaurant locations where tacos can be found.</p>
-
-			<table role="presentation">
-				<tbody>
-					<tr>
-						<td style="text-align: center; border: none; padding: 0;">
-							<iframe src="tacomap.html" width="800" height="600"
-								style="max-width: 100%; max-height: 90vh; box-sizing: border-box;"></iframe>
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align: center; border: none">
-							<small><a href="tacomap.html">See this map stand-alone.</a></small>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			
+			<div id="mapid" style="width: 800px; height: 600px"></div>
+			 <!-- API key -->
 
 			<h3 id="about-bigfoot">About Bigfoot</h3>
-			<p>Sightings of Bigfoot or Sasquatch have been reported in the US dating back to 1811, when British explorer
-				David Thompson reporting finding footprints. Sasquatch is variably described as a primate ranging from 6
-				to 15 feet (2 to 4.5 metres) tall, standing erect on two feet, often giving off a foul smell, and either
+			<p>Sightings of Bigfoot or Sasquatch have been reported in the US dating back to 1811, when British
+				explorer
+				David Thompson reporting finding footprints. Sasquatch is variably described as a primate ranging
+				from 6
+				to 15 feet (2 to 4.5 metres) tall, standing erect on two feet, often giving off a foul smell, and
+				either
 				moving silently or emitting a high-pitched cry. Footprints have measured up to 24 inches (60 cm) in
-				length and 8 inches (20 cm) in width. A Soviet scientist, Boris Porshnev, suggested that Sasquatch and
+				length and 8 inches (20 cm) in width. A Soviet scientist, Boris Porshnev, suggested that Sasquatch
+				and
 				his Siberian counterpart, the Almas, could be a remnant of Neanderthals, but most scientists do not
 				recognize the creature’s existence.</p>
 			<img src="static/Patterson–Gimlin_film_frame_352.jpeg" class="left" alt="This is frame 352 from the Patterson-Gimlin film taken on October 20, 1967, claiming to depict Bigfoot/Sasquatch.
@@ -102,42 +92,58 @@
 				to as the Genoskwa. In 1847, Paul Kane reported stories by the natives about skoocooms, a race of
 				cannibalistic wild men living on the peak of Mount St. Helens in southern Washington.</p>
 			<p><strong>Origin of the "Bigfoot" name</strong></p>
-			<p>In 1958, Jerry Crew, a logging company bulldozer operator in Humboldt County, California, discovered a
-				set of large, 410 millimetres (16 in) human-like footprints sunk deep within the mud in the Six Rivers
-				National Forest. Upon informing his coworkers, many claimed to have seen similar tracks on previous job
-				sites as well as telling of odd incidents such as an oil drum weighing 450 pounds (200 kg) having been
-				moved without explanation. The logging company men soon began utilizing the term "Bigfoot" to describe
+			<p>In 1958, Jerry Crew, a logging company bulldozer operator in Humboldt County, California, discovered
+				a
+				set of large, 410 millimetres (16 in) human-like footprints sunk deep within the mud in the Six
+				Rivers
+				National Forest. Upon informing his coworkers, many claimed to have seen similar tracks on previous
+				job
+				sites as well as telling of odd incidents such as an oil drum weighing 450 pounds (200 kg) having
+				been
+				moved without explanation. The logging company men soon began utilizing the term "Bigfoot" to
+				describe
 				the mysterious culprit. Crew, who initially believed someone was playing a prank on them, once again
 				observed more of these numerous, massive footprints and contacted reporter Andrew Genzoli of the
 				Humboldt Times newspaper. Genzoli interviewed lumber workers and wrote articles about the mysterious
-				footprints, introducing the name "Bigfoot" in relation to the tracks and the local tales of large, hairy
-				wild men. A plaster cast was made of the footprints and Crew appeared, holding one of the casts, on the
+				footprints, introducing the name "Bigfoot" in relation to the tracks and the local tales of large,
+				hairy
+				wild men. A plaster cast was made of the footprints and Crew appeared, holding one of the casts, on
+				the
 				front page of the newspaper on October 6, 1958. The story spread rapidly as Genzoli began to receive
-				correspondence from major media outlets including the New York and Los Angeles Times. As a result, the
-				term "Bigfoot" became widespread as a reference to an apparently large, unknown creature leaving massive
+				correspondence from major media outlets including the New York and Los Angeles Times. As a result,
+				the
+				term "Bigfoot" became widespread as a reference to an apparently large, unknown creature leaving
+				massive
 				footprints in Northern California.</p>
 
 			<h3 id="about-tacos">About Tacos</h3>
 
 			<p>The taco predates the arrival of the Spanish in Mexico. There is anthropological evidence that the
-				indigenous people living in the lake region of the Valley of Mexico traditionally ate tacos filled with
-				small fish. Writing at the time of the Spanish conquistadors, Bernal Díaz del Castillo documented the
-				first taco feast enjoyed by Europeans, a meal which Hernán Cortés arranged for his captains in Coyoacán.
+				indigenous people living in the lake region of the Valley of Mexico traditionally ate tacos filled
+				with
+				small fish. Writing at the time of the Spanish conquistadors, Bernal Díaz del Castillo documented
+				the
+				first taco feast enjoyed by Europeans, a meal which Hernán Cortés arranged for his captains in
+				Coyoacán.
 			</p>
 			<p>Etymologies for the culinary usage of the word are generally theoretical. One possibility is that the
-				word derives from the Nahuatl word "tlahco", meaning "half" or "in the middle," in the sense that food
+				word derives from the Nahuatl word "tlahco", meaning "half" or "in the middle," in the sense that
+				food
 				would be placed in the middle of a tortilla. Furthermore, dishes analogous to the taco were known to
 				have existed in Pre-Columbian society—for example, the Nahuatl word "tlaxcalli" (a type of corn
 				tortilla).</p>
-			<p>According to Jeffrey M. Pilcher, professor of history at the University of Minnesota, tacos started to
-				become a mainstream food between 1910 and 1920 when children of immigrants from Mexico (who came to work
+			<p>According to Jeffrey M. Pilcher, professor of history at the University of Minnesota, tacos started
+				to
+				become a mainstream food between 1910 and 1920 when children of immigrants from Mexico (who came to
+				work
 				the mines and railroads) started to advance economically.</p>
 
 			<h3 id="preparing-the-images">Why Bigfoot and Tacos?</h3>
 
 			<p>Nothing complicated - I like the idea of bigfoot, and who doesn't love tacos?</p>
 			<p>Also, who wouldn't want to know the best local spot to get tacos while on your bigfoot hunting
-				expedition? They're like the most perfect portable food. Food wrapped in food. Though not good to eat
+				expedition? They're like the most perfect portable food. Food wrapped in food. Though not good to
+				eat
 				while driving, second worst food to eat while driving right after spaghetti. I will not be taking
 				questions about that.</p>
 
@@ -147,10 +153,13 @@
 			<h3 id="project-plan">Project plan...</h3>
 			<p><strong>Phase 1</strong></p>
 			<p>A data set was obtained from <a href="https://data.world/timothyrenner/bfro-sightings-data"
-					target="_blank">data.world</a> - a datatset that Timothy Renner obtained by datascrapping the BRFO
-				website ranging from 1925 to 2004; broken down into three classifications of "quality" of sighting.</p>
+					target="_blank">data.world</a> - a datatset that Timothy Renner obtained by datascrapping the
+				BRFO
+				website ranging from 1925 to 2004; broken down into three classifications of "quality" of sighting.
+			</p>
 			<p> A secondary dataset was pulled from kaggle which was supposed to contain a list of 19,439
-				restaurants and similar businesses with menu items containing "burrito" or "taco" in their names. Data
+				restaurants and similar businesses with menu items containing "burrito" or "taco" in their names.
+				Data
 				was to be cleaned and analyzed for geographical similarities in locations - between the datasets and
 				within the bigfoot sightings.</p>
 			<p>Machine learning would be used to find patterns in the bigfoot sightings, and all locations would be
@@ -186,10 +195,14 @@
 			<p><strong>Phase 1</strong></p>
 
 			<p>There are reported bigfoot sightings in every state in the US aside from Hawaii. Non-chain taco
-				establishments can probably be found in every state in the US, though my list did not have any that made
-				the cut in Alaska, North Dakota, South Dakota, or Vermont. The inital maching learning algorithm could
-				not make predicitions on bigfoot sighting locations more accurate than 52%(slightly better than a coin
-				flip), and refining the data to only include the "Class A" sightings, listed on the brfo website as:</p>
+				establishments can probably be found in every state in the US, though my list did not have any that
+				made
+				the cut in Alaska, North Dakota, South Dakota, or Vermont. The inital maching learning algorithm
+				could
+				not make predicitions on bigfoot sighting locations more accurate than 52%(slightly better than a
+				coin
+				flip), and refining the data to only include the "Class A" sightings, listed on the brfo website as:
+			</p>
 			<blockquote>"Class A reports involve clear sightings in circumstances where misinterpretation or
 				misidentification of other animals can be ruled out with greater confidence. For example, there are
 				several footprint cases that are very well documented. These are considered Class A reports, because
@@ -198,7 +211,8 @@
 			<p>dropped accuracy to 11%.
 			</p>
 			<p>Attempts to visually identify possible migration patterns by color coding the sighting data based on
-				season were all unimpressive, resulting in a colorful mismosh with no pattern discernable to the human
+				season were all unimpressive, resulting in a colorful mismosh with no pattern discernable to the
+				human
 				eye.</p>
 			<img src="static/sightings_by_season.png" width="400" class="center"
 				alt="map of US covered in blue, red and purple dots">
@@ -243,6 +257,10 @@
 		</div>
 	</main>
 
+	<!-- API key -->
+	<script type="text/javascript" src="js/config.js"></script>
+	<!-- Our JavaScript -->
+	<script type="text/javascript" src="js/bigfoot_loc.js"></script>
 
 
 
