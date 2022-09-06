@@ -53,7 +53,7 @@ let tacoStyle = {
 };
 
 // 3. Use d3.json to make a call to get our TACO geoJSON data.
-d3.json("https://github.com/mmdemars/bigfoot_migration/blob/main/static/best_tacos.geojson").then(function (data) {
+d3.json("/static/best_tacos.geojson").then(function (data) {
   console.log(data);
   L.geoJSON(data, {
     pointToLayer: function (feature, latlng) {
@@ -80,7 +80,7 @@ d3.json("https://github.com/mmdemars/bigfoot_migration/blob/main/static/best_tac
 
 
 // Retrieve the sighting GeoJSON data.
-d3.json("https://github.com/mmdemars/bigfoot_migration/blob/main/static/bigfoot_movement.geojson").then(function (data) {
+d3.json("/static/bigfoot_movement.geojson").then(function (data) {
 
   // This function returns the style data for each of the earthquakes we plot on
   // the map. We pass the magnitude of the earthquake into two separate functions
