@@ -186,9 +186,13 @@
 
 			<h3 id="preparing-the-images">Preparing the data...</h3>
 
-			<p>Text about preparing the data...</p>
+			<p>Data was cleaned primarily using Python Pandas. The Bigfoot Data was for the most part fairly tidy - the date of the sighting was recast as DATETIME, 
+				and extra columns were removed from the set. The initial Taco dataset was more complicated, with many more columns to remove as well as rows with 
+				missing coordinate data. The restaurants present in it were narrowed down from an initial set of over 19,000 locations down to just over 1500 - removing 
+				any that coudn't be strictly classified as Mexican, as well as any chains (anything with more than 5 locations).
+			</p>
 
-			<p>Morre text.</p>
+			<p>Later the Bigfoot set was checked for duplicate coordinates to identify places with multiple sightings. These "hotspots" were further refined to 5 locations (shown below).</p>
 
 			<h3 id="preparing-the-images">Results...</h3>
 			<p><strong>Phase 1</strong></p>
@@ -216,7 +220,7 @@
 			<img src="static/sightings_by_season.png" width="400" class="center"
 				alt="map of US covered in blue, red and purple dots">
 
-			<p>Through data exploration, 5 sites did emerge as repeat sighting locations(i.e. having thr exact same
+			<p>Through data exploration, 5 sites did emerge as repeat sighting locations (i.e. having the exact same
 				coordinates):</p>
 				<table>
 					<tr>
@@ -238,7 +242,6 @@
 						<td>-119.9811</td>
 						<td>Pinecrest, CA</td>
 						<td>Loud, High-pitched Animal Screams Heard Outside a Cabin Late at Night</td>
-						<td></td>
 					</tr>
 					<tr>
 						<td>Location 1</td>
